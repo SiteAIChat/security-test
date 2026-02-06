@@ -1,0 +1,85 @@
+---
+interface Props {
+  items?: string[];
+}
+
+const { items = [] } = Astro.props;
+---
+
+<section class="relative pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden">
+  <div class="absolute inset-0 -z-10">
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-primary/5 to-secondary/5 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 mb-8">
+        <div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+        <span class="text-sm font-medium text-primary">Documentation Resource</span>
+      </div>
+
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground mb-6">
+        <span class="bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-transparent">
+          Example
+        </span>
+        {" "}Domain
+      </h1>
+
+      <p class="text-lg sm:text-xl text-gray-500 leading-relaxed mb-10 max-w-2xl mx-auto">
+        This domain is for use in documentation examples without needing permission. Avoid use in operations.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="#learn-more"
+          class="group inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-gradient-to-r from-primary to-secondary text-white font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-300"
+        >
+          Learn more
+          <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+        <a
+          href="#documentation"
+          class="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-white border border-gray-200 text-foreground font-semibold hover:border-primary/30 hover:bg-gray-50 hover:-translate-y-0.5 transition-all duration-300"
+        >
+          Documentation
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-16 sm:mt-20 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto">
+      <div class="group relative p-6 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300">
+        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+          <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+        </div>
+        <h3 class="text-sm font-semibold text-foreground mb-1">Documentation</h3>
+        <p class="text-sm text-gray-500">For use in examples</p>
+      </div>
+
+      <div class="group relative p-6 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-secondary/20 transition-all duration-300">
+        <div class="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+          <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+        </div>
+        <h3 class="text-sm font-semibold text-foreground mb-1">No Permission</h3>
+        <p class="text-sm text-gray-500">No authorization needed</p>
+      </div>
+
+      <div class="group relative p-6 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+          <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+        <h3 class="text-sm font-semibold text-foreground mb-1">Quick Start</h3>
+        <p class="text-sm text-gray-500">Ready to use instantly</p>
+      </div>
+    </div>
+  </div>
+</section>

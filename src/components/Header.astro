@@ -1,0 +1,75 @@
+---
+interface Props {
+  items?: { label: string; href: string }[];
+}
+
+const { items = [] } = Astro.props;
+
+const defaultNav = items.length > 0 ? items : [
+  { label: "Home", href: "#" },
+  { label: "Documentation", href: "#documentation" },
+  { label: "Learn More", href: "#learn-more" },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100">
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
+    <div class="flex items-center justify-between h-16">
+      <a href="/" class="flex items-center gap-2 group" aria-label="Example Domain home">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+          <span class="text-white font-bold text-sm">E</span>
+        </div>
+        <span class="text-lg font-bold text-foreground">Example Domain</span>
+      </a>
+
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors duration-200"
+        aria-label="Toggle mobile menu"
+        aria-expanded="false"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <ul class="hidden md:flex items-center gap-1" role="list">
+        {defaultNav.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-foreground hover:bg-gray-50 transition-all duration-200"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden pb-4">
+      <ul class="flex flex-col gap-1" role="list">
+        {defaultNav.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="block px-4 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:text-foreground hover:bg-gray-50 transition-all duration-200"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  btn?.addEventListener("click", () => {
+    const expanded = btn.getAttribute("aria-expanded") === "true";
+    btn.setAttribute("aria-expanded", String(!expanded));
+    menu?.classList.toggle("hidden");
+  });
+</script>
